@@ -1,4 +1,4 @@
-name: Vaidate test
+name: Validate test
 run-name: ${{ github.actor }} is running test on ${{ github.ref }}
 on: [push]
 jobs:
