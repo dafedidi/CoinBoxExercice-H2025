@@ -1,0 +1,23 @@
+name: Vaidate test
+run-name: ${{ github.actor }} is running test on ${{ github.ref }}
+on: [push]
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install dependencies 
+        run: pip install -r ./requirement.txt
+      - name: Execute all tests 
+        run: python -m unittest discover -s ./src
+      - name: Execute coverage report 
+        run: coverage run -m unittest discover -s ./src
+      - name: Create HTML report 
+        run: coverage report && coverage html
+      - name: Upload archive to github 
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage folder
+          path: htmlcov/**
+      - run: echo "Finished test with success 🚀"
