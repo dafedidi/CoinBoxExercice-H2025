@@ -11,4 +11,4 @@ Ensuite, vous pouvez exécuter le programme en utilisant son interface avec:
 Vous pouvez faire fonctionner les tests en utilisant (dans le répertoire de fichiers /src):
 - python -m unittest
 
-
+Corrigé.
